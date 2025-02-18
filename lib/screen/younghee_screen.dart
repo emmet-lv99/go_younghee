@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class YoungheeScreen extends StatelessWidget {
-  const YoungheeScreen(
-      {super.key, required this.speed, required this.catImage});
+  const YoungheeScreen({
+    super.key,
+    required this.speed,
+    required this.catImage,
+  });
 
   final double speed;
   final Image catImage;
@@ -19,7 +22,10 @@ class YoungheeScreen extends StatelessWidget {
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [catImage, Text('$speed')],
+          children: [
+            catImage,
+            Text('$speed'),
+          ],
         ),
       ),
     );
