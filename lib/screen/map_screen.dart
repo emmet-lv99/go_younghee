@@ -22,21 +22,44 @@ class _MapScreenState extends State<MapScreen> {
   StreamSubscription<Position>? _positionStreamSubscription;
 
   Future<void> _initLocation() async {
-    await _checkLocationPermission();
-    _position = await Geolocator.getCurrentPosition();
-    _isPositionInitialized = true;
-    const LocationSettings locationSettings = LocationSettings(
-      accuracy: LocationAccuracy.high,
-      distanceFilter: 1,
-    );
-    _positionStreamSubscription = Geolocator.getPositionStream(
-      locationSettings: locationSettings,
-    ).listen((Position position) {
-      widget.onSpeedChanged(!position.speed.isNaN && !position.speed.isInfinite
-          ? double.parse((position.speed * 3.6).toStringAsFixed(2))
-          : 0);
-      print('Speed: ${(position.speed * 3.6).toStringAsFixed(2)} km/h');
-    });
+    try {
+      await _checkLocationPermission();
+      _position = await Geolocator.getCurrentPosition();
+      _isPositionInitialized = true;
+
+      const LocationSettings locationSettings = LocationSettings(
+        accuracy: LocationAccuracy.bestForNavigation,
+        distanceFilter: 5,
+      );
+
+      _positionStreamSubscription?.cancel();
+
+      _positionStreamSubscription = Geolocator.getPositionStream(
+        locationSettings: locationSettings,
+      ).listen(
+        (Position position) {
+          if (!mounted) return;
+
+          double speedKmh = 0;
+          if (!position.speed.isNaN &&
+              !position.speed.isInfinite &&
+              position.speed >= 0) {
+            speedKmh = double.parse((position.speed * 3.6).toStringAsFixed(2));
+          }
+
+          if (speedKmh < 0.5) {
+            speedKmh = 0;
+          }
+
+          widget.onSpeedChanged(speedKmh);
+        },
+        onError: (error) {
+          print('Position Stream error: $error');
+        },
+      );
+    } catch (e) {
+      print('Error in _initLocation: $e');
+    }
   }
 
   Future<void> _checkLocationPermission() async {

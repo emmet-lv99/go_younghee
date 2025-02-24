@@ -1,0 +1,25 @@
+# 언어 설정
+language = korean
+
+# 문서 참조 설정
+reference_docs = [
+  "https://docs.flutter.dev/",
+  "https://dart.dev/guides"
+]
+
+# 답변 형식 설정
+[answer_format]
+default_language = korean
+include_references = true
+reference_style = inline
+
+# 문서 인용 규칙
+[citation]
+flutter_docs = true
+dart_docs = true
+must_cite_source = true
+
+# 특수 지시사항
+[special_instructions]
+korean_response = true
+reference_required = true

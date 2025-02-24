@@ -15,10 +15,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String isScreen = 'Younghee';
   late MapScreen mapScreen;
-  double speed = 1; // 기본 속도 설정
+  double speed = 0; // 기본 속도 설정
   int currentNumber = 0; // 현재 숫자
 
   Timer? _timer; // Timer 변수 추가
+  double _accumulatedFrame = 0;  // 누적 프레임 값 추가
 
   List<Image> catImages = [
     Image.asset('asset/0.png'),
@@ -45,30 +46,38 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _startNumberUpdate() {
-    // 기존 타이머가 있다면 취소
-    _timer?.cancel();
-    _timer = null; // 타이머 명시적으로 null로 설정
-
-    // speed가 0이하면 타이머를 시작하지 않음
-    if (speed <= 0) return;
-
-    // 타이머 주기 계산 (최소 100ms, 최대 5000ms로 제한)
-    int interval = (5000 / speed).round().clamp(100, 5000);
-
-    _timer = Timer.periodic(Duration(milliseconds: interval), (timer) {
+    if (speed <= 0) {
+      _timer?.cancel();
+      _timer = null;
+      _accumulatedFrame = 0;  // 누적값 리셋
       setState(() {
-        if (currentNumber < catImages.length - 1) {
-          currentNumber++;
-        } else {
-          currentNumber = 0;
-        }
+        currentNumber = 0;
       });
+      return;
+    }
+
+    // 타이머가 이미 실행 중이면 새로 시작하지 않음
+    if (_timer != null) return;
+
+    _timer = Timer.periodic(const Duration(milliseconds: 16), (timer) {
+      if (!mounted) return;
+      
+      // 프레임 누적값 계산
+      _accumulatedFrame += speed / 30;
+      
+      if (_accumulatedFrame >= 1) {
+        setState(() {
+          // 누적된 프레임만큼 이미지 인덱스 증가
+          currentNumber = (currentNumber + _accumulatedFrame.floor()) % catImages.length;
+          _accumulatedFrame = _accumulatedFrame % 1;  // 남은 소수점 유지
+        });
+      }
     });
   }
 
   @override
   void dispose() {
-    _timer?.cancel(); // 타이머 해제
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -101,13 +110,16 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onSpeedChanged(double newSpeed) {
-    // 속도가 실제로 변경되었을 때만 Timer를 재시작
+    if (!mounted) return;
+
     if (speed != newSpeed) {
-      print('Speed changed from $speed to $newSpeed'); // 디버깅용
       setState(() {
         speed = newSpeed;
-        _startNumberUpdate();
       });
+      
+      if (speed > 0 && _timer == null) {
+        _startNumberUpdate();
+      }
     }
   }
 }
