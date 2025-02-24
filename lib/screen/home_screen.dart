@@ -18,9 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   double speed = 0; // 기본 속도 설정
   int currentNumber = 0; // 현재 숫자
 
-  Timer? _timer; // Timer 변수 추가
-  double _accumulatedFrame = 0;  // 누적 프레임 값 추가
+  Timer? _timer;
 
+  final int _totalFrames = 14;  // 총 프레임 수
+  
   List<Image> catImages = [
     Image.asset('asset/0.png'),
     Image.asset('asset/1.png'),
@@ -49,29 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
     if (speed <= 0) {
       _timer?.cancel();
       _timer = null;
-      _accumulatedFrame = 0;  // 누적값 리셋
-      setState(() {
-        currentNumber = 0;
-      });
+      setState(() => currentNumber = 0);
       return;
     }
 
-    // 타이머가 이미 실행 중이면 새로 시작하지 않음
-    if (_timer != null) return;
-
-    _timer = Timer.periodic(const Duration(milliseconds: 16), (timer) {
+    // 속도에 따른 타이머 간격 계산
+    int interval = (1000 / (_totalFrames * (speed / 10))).round().clamp(16, 200);
+    
+    _timer?.cancel();
+    _timer = Timer.periodic(Duration(milliseconds: interval), (timer) {
       if (!mounted) return;
-      
-      // 프레임 누적값 계산
-      _accumulatedFrame += speed / 30;
-      
-      if (_accumulatedFrame >= 1) {
-        setState(() {
-          // 누적된 프레임만큼 이미지 인덱스 증가
-          currentNumber = (currentNumber + _accumulatedFrame.floor()) % catImages.length;
-          _accumulatedFrame = _accumulatedFrame % 1;  // 남은 소수점 유지
-        });
-      }
+      setState(() {
+        currentNumber = (currentNumber + 1) % catImages.length;
+      });
     });
   }
 
@@ -116,10 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         speed = newSpeed;
       });
-      
-      if (speed > 0 && _timer == null) {
-        _startNumberUpdate();
-      }
+      _startNumberUpdate();  // 속도 변경 시 타이머 재시작
     }
   }
 }
