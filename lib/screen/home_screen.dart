@@ -45,14 +45,22 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _startNumberUpdate() {
-    _timer =
-        Timer.periodic(Duration(milliseconds: (5000 / speed).round()), (timer) {
+    // 기존 타이머가 있다면 취소
+    _timer?.cancel();
+    _timer = null; // 타이머 명시적으로 null로 설정
+
+    // speed가 0이하면 타이머를 시작하지 않음
+    if (speed <= 0) return;
+
+    // 타이머 주기 계산 (최소 100ms, 최대 5000ms로 제한)
+    int interval = (5000 / speed).round().clamp(100, 5000);
+
+    _timer = Timer.periodic(Duration(milliseconds: interval), (timer) {
       setState(() {
         if (currentNumber < catImages.length - 1) {
           currentNumber++;
         } else {
           currentNumber = 0;
-          // timer.cancel(); // 10에 도달하면 타이머 중지
         }
       });
     });
@@ -92,10 +100,14 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  _onSpeedChanged(double speed) {
-    setState(() {
-      this.speed = speed;
-      _startNumberUpdate(); // 속도가 변경되면 숫자 업데이트 시작
-    });
+  void _onSpeedChanged(double newSpeed) {
+    // 속도가 실제로 변경되었을 때만 Timer를 재시작
+    if (speed != newSpeed) {
+      print('Speed changed from $speed to $newSpeed'); // 디버깅용
+      setState(() {
+        speed = newSpeed;
+        _startNumberUpdate();
+      });
+    }
   }
 }

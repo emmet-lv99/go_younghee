@@ -2,6 +2,7 @@ C/C++ Structured Logx
 v
 t/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/additional_project_files.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ƒÖì¸Ó2 éÉµºÑ2u
 s
 q/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/android_gradle_build.json	ƒÖì¸Ó2ƒ êÉµºÑ2z
@@ -26,3 +27,29 @@ q
 o/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/symbol_folder_index.txt	ƒÖì¸Ó2f êÉµºÑ2n
 l
 j/opt/homebrew/Caskroom/flutter/3.29.0/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt	ƒÖì¸Ó2¤  ­ÑÚÏ2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Õ£²¸Ó2 éÉµºÑ2u
+s
+q/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/android_gradle_build.json	Õ£²¸Ó2ƒ êÉµºÑ2z
+x
+v/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/android_gradle_build_mini.json	Õ£²¸Ó2„ êÉµºÑ2g
+e
+c/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/build.ninja	Õ£²¸Ó2ŠÍ áÉµºÑ2k
+i
+g/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/build.ninja.txt	Õ£²¸Ó2p
+n
+l/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/build_file_index.txt	Õ£²¸Ó2j êÉµºÑ2q
+o
+m/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/compile_commands.json	Õ£²¸Ó2u
+s
+q/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/compile_commands.json.bin	Õ£²¸Ó2	{
+y
+w/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/metadata_generation_command.txt	Õ£²¸Ó2
+ï êÉµºÑ2n
+l
+j/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/prefab_config.json	Õ£²¸Ó2( êÉµºÑ2s
+q
+o/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/x86_64/symbol_folder_index.txt	Õ£²¸Ó2f êÉµºÑ2n
+l
+j/opt/homebrew/Caskroom/flutter/3.29.0/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt	Õ£²¸Ó2¤  ­ÑÚÏ2
+>>>>>>> new/01

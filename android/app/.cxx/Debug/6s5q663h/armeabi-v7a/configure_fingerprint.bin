@@ -2,6 +2,7 @@ C/C++ Structured Log}
 {
 y/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/additional_project_files.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	îÓì¸Ó2 ‚ÅµºÑ2z
 x
 v/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/android_gradle_build.json	îÓì¸Ó2 ‚ÅµºÑ2
@@ -26,3 +27,29 @@ v
 t/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/symbol_folder_index.txt	îÓì¸Ó2k ƒÅµºÑ2n
 l
 j/opt/homebrew/Caskroom/flutter/3.29.0/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt	îÓì¸Ó2¤  ­ÑÚÏ2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Â£²¸Ó2 ‚ÅµºÑ2z
+x
+v/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/android_gradle_build.json	Â£²¸Ó2 ‚ÅµºÑ2
+}
+{/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/android_gradle_build_mini.json	Â£²¸Ó2Ž ‚ÅµºÑ2l
+j
+h/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/build.ninja	Â£²¸Ó2¨Í úÄµºÑ2p
+n
+l/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/build.ninja.txt	Â£²¸Ó2u
+s
+q/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/build_file_index.txt	Â£²¸Ó2j ƒÅµºÑ2v
+t
+r/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/compile_commands.json	Â£²¸Ó2z
+x
+v/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/compile_commands.json.bin	Â£²¸Ó2	€
+~
+|/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/metadata_generation_command.txt	Â£²¸Ó2
+ˆ	 ƒÅµºÑ2s
+q
+o/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/prefab_config.json	Â£²¸Ó2( ƒÅµºÑ2x
+v
+t/Users/anmokgosu/Documents/source/my/go_younghee/android/app/.cxx/Debug/6s5q663h/armeabi-v7a/symbol_folder_index.txt	Â£²¸Ó2k ƒÅµºÑ2n
+l
+j/opt/homebrew/Caskroom/flutter/3.29.0/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt	Â£²¸Ó2¤  ­ÑÚÏ2
+>>>>>>> new/01
